@@ -20,7 +20,7 @@ void Game::UpdateEvents()
 
 void Game::Update()
 {
-
+    const float dt = clock.restart().asSeconds();
 }
 
 void Game::Render()
