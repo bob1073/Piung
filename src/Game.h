@@ -28,5 +28,8 @@ private:
 	// User variables here
 	/* Time */
 	sf::Clock clock;
+	/* Entities*/
+	sf::FloatRect walls;
+	Ball ball;
 	//
 };
