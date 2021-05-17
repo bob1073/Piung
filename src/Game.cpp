@@ -7,6 +7,7 @@ Game::Game()
     walls(0.0f, 0.0f, screenWidth, screenHeight),
     ball(sf::Vector2f(100.0f, 100.0f), sf::Vector2f(1.0f, 1.0f))
 {
+    window.setVerticalSyncEnabled(true);
 }
 
 Game::~Game()
