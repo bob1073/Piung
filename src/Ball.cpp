@@ -6,6 +6,8 @@ Ball::Ball(sf::Vector2f pos, sf::Vector2f dir)
 	dir(dir)
 {
 	speed = 500.0f;
+	NormalizeDir();
+
 	ball.setPosition(pos);
 	ball.setOrigin(radius, radius); // Sets origin at center of circle
 	ball.setRadius(radius);
@@ -46,4 +48,11 @@ void Ball::DoWallCollisions(const sf::FloatRect& walls)
 	{
 		ReboundY();
 	}
+}
+
+void Ball::NormalizeDir()
+{
+	const float norm = std::sqrt(dir.x * dir.x + dir.y * dir.y);
+
+	dir /= norm;
 }
