@@ -21,6 +21,9 @@ public:
 	// Collision
 	void DoWallCollisions(const sf::FloatRect& walls);
 
+	// Getters
+	sf::FloatRect GetRect() const;
+
 private:
 	// Shape
 	sf::CircleShape ball;

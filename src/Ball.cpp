@@ -50,6 +50,11 @@ void Ball::DoWallCollisions(const sf::FloatRect& walls)
 	}
 }
 
+sf::FloatRect Ball::GetRect() const
+{
+	return ball.getGlobalBounds();
+}
+
 void Ball::NormalizeDir()
 {
 	const float norm = std::sqrt(dir.x * dir.x + dir.y * dir.y);

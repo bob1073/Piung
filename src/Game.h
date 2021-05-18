@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Ball.h"
+#include "Paddle.h"
 
 class Game
 {
@@ -31,5 +31,6 @@ private:
 	/* Entities*/
 	sf::FloatRect walls;
 	Ball ball;
+	Paddle playerPaddle;
 	//
 };
