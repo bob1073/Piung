@@ -23,6 +23,7 @@ public:
 
 	// Getters
 	sf::FloatRect GetRect() const;
+	const sf::Vector2f GetPosition() const;
 
 private:
 	// Shape

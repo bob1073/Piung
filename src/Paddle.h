@@ -12,13 +12,13 @@ public:
 	void Render(sf::RenderTarget& target);
 
 	// Movement
-	void Update(const float& dt);
+	virtual void Update(const float& dt, const Ball& ball) = 0;
 
 	// Collision
-	void DoBallCollision(Ball& ball) const;
-	void DoWallCollision(const sf::FloatRect& walls);
+	virtual void DoBallCollision(Ball& ball) const = 0;
+	bool DoWallCollision(const sf::FloatRect& walls);
 
-private:
+protected:
 	// Shape
 	sf::RectangleShape paddle;
 

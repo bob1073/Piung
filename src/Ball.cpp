@@ -9,7 +9,6 @@ Ball::Ball(sf::Vector2f pos, sf::Vector2f dir)
 	NormalizeDir();
 
 	ball.setPosition(pos);
-	ball.setOrigin(radius, radius); // Sets origin at center of circle
 	ball.setRadius(radius);
 	ball.setFillColor(sf::Color::Magenta);
 }
@@ -40,11 +39,7 @@ void Ball::DoWallCollisions(const sf::FloatRect& walls)
 	const float right = walls.left + walls.width;
 	const float bottom = walls.top + walls.height;
 
-	if (pos.x - radius <= walls.left || pos.x + radius >= right)
-	{
-		ReboundX();
-	}
-	else if(pos.y -radius <= walls.top || pos.y + radius >= bottom)
+	if(pos.y <= walls.top || pos.y + 2.0f*radius >= bottom)
 	{
 		ReboundY();
 	}
@@ -53,6 +48,11 @@ void Ball::DoWallCollisions(const sf::FloatRect& walls)
 sf::FloatRect Ball::GetRect() const
 {
 	return ball.getGlobalBounds();
+}
+
+const sf::Vector2f Ball::GetPosition() const
+{
+	return pos;
 }
 
 void Ball::NormalizeDir()

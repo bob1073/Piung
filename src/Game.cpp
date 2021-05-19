@@ -6,9 +6,10 @@ Game::Game()
     window(sf::VideoMode(screenWidth, screenHeight), "Piung!", sf::Style::Close | sf::Style::Titlebar),
     walls(0.0f, 0.0f, screenWidth, screenHeight),
     ball(sf::Vector2f(100.0f, 100.0f), sf::Vector2f(1.0f, 1.0f)),
-    playerPaddle(sf::Vector2f(50.0f, screenHeight / 3.0f), 25.0f, 125.0f)
+    playerPaddle(sf::Vector2f(50.0f, screenHeight / 3.0f), 25.0f, 125.0f),
+    enemyPaddle(sf::Vector2f(750.0f, screenHeight / 3.0f), 25.0f, 125.0f)
 {
-    window.setVerticalSyncEnabled(true);
+    //window.setVerticalSyncEnabled(true);
 }
 
 Game::~Game()
@@ -31,9 +32,13 @@ void Game::Update()
     ball.Update(dt);
     ball.DoWallCollisions(walls);
 
-    playerPaddle.Update(dt);
+    playerPaddle.Update(dt, ball);
     playerPaddle.DoBallCollision(ball);
     playerPaddle.DoWallCollision(walls);
+
+    enemyPaddle.Update(dt, ball);
+    enemyPaddle.DoBallCollision(ball);
+    enemyPaddle.DoWallCollision(walls);
 }
 
 void Game::Render()
@@ -42,6 +47,7 @@ void Game::Render()
     // Render things here
     ball.Render(window);
     playerPaddle.Render(window);
+    enemyPaddle.Render(window);
     //
     window.display();
 }
