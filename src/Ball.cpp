@@ -40,11 +40,11 @@ void Ball::DoWallCollisions(const sf::FloatRect& walls)
 	const float right = walls.left + walls.width;
 	const float bottom = walls.top + walls.height;
 
-	if (pos.x <= walls.left || pos.x + radius >= right)
+	if (pos.x - radius <= walls.left || pos.x + radius >= right)
 	{
 		ReboundX();
 	}
-	else if(pos.y <= walls.top || pos.y + radius >= bottom)
+	else if(pos.y -radius <= walls.top || pos.y + radius >= bottom)
 	{
 		ReboundY();
 	}
