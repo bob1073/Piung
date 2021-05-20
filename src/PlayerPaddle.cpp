@@ -29,8 +29,8 @@ void PlayerPaddle::DoBallCollision(Ball& ball) const
 
 	const float ballBottom = ballRect.top + ballRect.height;
 	const float ballRight = ballRect.left + ballRect.width;
-	const float paddleBottom = paddleRect.top + paddleRect.height;
-	const float paddleRight = paddleRect.left + paddleRect.width;
+	const float paddleBottom = pos.y + height;
+	const float paddleRight = pos.x + width;
 
 	// If ball is "near" the paddle
 	if (ballRect.top >= paddleRect.top && ballBottom <= paddleBottom)
