@@ -32,13 +32,11 @@ void Game::Update()
     ball.Update(dt);
     ball.DoWallCollisions(walls);
 
-    playerPaddle.Update(dt, ball);
+    playerPaddle.Update(dt, ball, walls);
     playerPaddle.DoBallCollision(ball);
-    playerPaddle.DoWallCollision(walls);
 
-    enemyPaddle.Update(dt, ball);
+    enemyPaddle.Update(dt, ball, walls);
     enemyPaddle.DoBallCollision(ball);
-    enemyPaddle.DoWallCollision(walls);
 }
 
 void Game::Render()

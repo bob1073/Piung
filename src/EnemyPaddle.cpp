@@ -6,27 +6,9 @@ EnemyPaddle::EnemyPaddle(sf::Vector2f pos, float width, float height)
 {
 }
 
-void EnemyPaddle::Update(const float& dt, const Ball& ball)
-{
-	/*if (goingDown)
-	{
-		pos.y += speed * dt;
-		if (pos.y >= 400.0f)
-		{
-			goingDown = false;
-		}
-	}
-	else
-	{
-		pos.y -= speed * dt;
-		if (pos.y <= 50.0f)
-		{
-			goingDown = true;
-		}
-	}*/
-
-	pos.y = ball.GetPosition().y - paddle.getGlobalBounds().height/ 2.0f;
-
+void EnemyPaddle::Update(const float& dt, const Ball& ball, const sf::FloatRect& walls)
+{	
+	pos.y = ClampScreen(ball.GetPosition().y - paddle.getGlobalBounds().height / 2.0f, walls);
 	paddle.setPosition(pos);
 }
 
@@ -60,3 +42,5 @@ void EnemyPaddle::DoBallCollision(Ball& ball) const
 		}
 	}
 }
+
+

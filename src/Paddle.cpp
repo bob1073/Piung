@@ -3,7 +3,9 @@
 
 Paddle::Paddle(sf::Vector2f pos, float width, float height)
 	:
-	pos(pos)
+	pos(pos),
+	width(width),
+	height(height)
 {
 	paddle.setPosition(pos);
 	paddle.setFillColor(sf::Color::Yellow);
@@ -15,25 +17,19 @@ void Paddle::Render(sf::RenderTarget& target)
 	target.draw(paddle);
 }
 
-
-
-bool Paddle::DoWallCollision(const sf::FloatRect& walls)
+float Paddle::ClampScreen(float y, const sf::FloatRect& walls)
 {
-	const float paddlePosY = paddle.getPosition().y;
 	const float wallsBottom = walls.top + walls.height;
-	const float paddleHeight = paddle.getGlobalBounds().height;
-
-	if (paddlePosY <= walls.top)
+	if (y <= walls.top)
 	{
-		pos.y = walls.top;
-		return true;
+		return walls.top;
 	}
-	else if (paddlePosY >= wallsBottom - paddleHeight)
+	else if (y + height > wallsBottom)
 	{
-		pos.y = wallsBottom - paddleHeight;
-		return true;
+		return wallsBottom - height;
 	}
-	paddle.setPosition(pos);
-
-	return false;
+	else
+	{
+		return y;
+	}
 }

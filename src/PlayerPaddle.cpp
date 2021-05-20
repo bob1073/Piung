@@ -6,7 +6,7 @@ PlayerPaddle::PlayerPaddle(sf::Vector2f pos, float width, float height)
 {
 }
 
-void PlayerPaddle::Update(const float& dt, const Ball& ball)
+void PlayerPaddle::Update(const float& dt, const Ball& ball, const sf::FloatRect& walls)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
@@ -16,6 +16,9 @@ void PlayerPaddle::Update(const float& dt, const Ball& ball)
 	{
 		pos.y += speed * dt;
 	}
+
+	pos.y = ClampScreen(pos.y, walls);
+
 	paddle.setPosition(pos);
 }
 
