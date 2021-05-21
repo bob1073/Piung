@@ -34,5 +34,13 @@ private:
 	Ball ball;
 	PlayerPaddle playerPaddle;
 	EnemyPaddle enemyPaddle;
+	/* UI */
+	sf::Font font;
+	sf::Text playerScoreText;
+	sf::Text enemyScoreText;
+	/* Score */
+	int playerScore = 0;
+	int enemyScore = 0;
+
 	//
 };
