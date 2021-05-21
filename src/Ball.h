@@ -17,6 +17,8 @@ public:
 	void Update(const float& dt);
 	void ReboundX();
 	void ReboundY();
+	void Rebound(sf::Vector2f dir);
+	void IncrementSpeed();
 
 	// Collision
 	void DoWallCollisions(const sf::FloatRect& walls);
@@ -32,6 +34,7 @@ private:
 	sf::Color color;
 
 	// Movement
+	static constexpr float speedRate = 20.0f;
 	sf::Vector2f pos;
 	sf::Vector2f dir;
 	float speed;

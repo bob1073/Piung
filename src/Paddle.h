@@ -15,7 +15,7 @@ public:
 	virtual void Update(const float& dt, const Ball& ball, const sf::FloatRect& walls) = 0;
 
 	// Collision
-	virtual void DoBallCollision(Ball& ball) const = 0;
+	void DoBallCollision(Ball& ball) const;
 
 protected:
 	// Shape
@@ -25,6 +25,7 @@ protected:
 
 	// Movement
 	sf::Vector2f pos;
+	float ballColllisionDir = 1.0f;
 	static constexpr float speed = 500.0f;
 
 	// Keep paddle inside the walls

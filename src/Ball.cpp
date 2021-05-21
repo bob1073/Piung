@@ -34,6 +34,16 @@ void Ball::ReboundY()
 	dir.y = -dir.y;
 }
 
+void Ball::Rebound(sf::Vector2f dir)
+{
+	this->dir = dir;
+}
+
+void Ball::IncrementSpeed()
+{
+	speed += speedRate;
+}
+
 void Ball::DoWallCollisions(const sf::FloatRect& walls)
 {
 	const float right = walls.left + walls.width;
