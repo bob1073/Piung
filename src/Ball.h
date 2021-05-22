@@ -35,6 +35,7 @@ public:
 	// Getters
 	sf::FloatRect GetRect() const;
 	const sf::Vector2f GetPosition() const;
+	const sf::Vector2f GetDirection() const;
 
 private:
 	// Shape

@@ -12,7 +12,7 @@ Ball::Ball(const sf::Vector2f& startPos, const sf::Vector2f& startDir)
 
 	ball.setPosition(pos);
 	ball.setRadius(radius);
-	ball.setFillColor(sf::Color::Magenta);
+	ball.setFillColor(sf::Color::White);
 }
 
 void Ball::Render(sf::RenderTarget& target)
@@ -87,6 +87,11 @@ sf::FloatRect Ball::GetRect() const
 const sf::Vector2f Ball::GetPosition() const
 {
 	return pos;
+}
+
+const sf::Vector2f Ball::GetDirection() const
+{
+	return dir;
 }
 
 void Ball::NormalizeDir()

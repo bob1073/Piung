@@ -8,7 +8,7 @@ Paddle::Paddle(sf::Vector2f pos, float width, float height)
 	height(height)
 {
 	paddle.setPosition(pos);
-	paddle.setFillColor(sf::Color::Yellow);
+	paddle.setFillColor(sf::Color::White);
 	paddle.setSize(sf::Vector2f(width, height));
 }
 
@@ -27,6 +27,11 @@ void Paddle::DoBallCollision(Ball& ball) const
 	{
 		ball.IncrementSpeed();
 
+		const float distFromCenter = (ballRect.top + ballRect.height / 2.0f) - (pos.y + height / 2.0f);
+		const float ratio = distFromCenter / (height / 2.0f);
+
+		ball.Rebound({ ballColllisionDir, ratio });
+		/*
 		// Top collision
 		if (ballRect.top <= pos.y + height / 3.0f)
 		{
@@ -42,6 +47,7 @@ void Paddle::DoBallCollision(Ball& ball) const
 		{
 			ball.Rebound({ ballColllisionDir, 0.75f });
 		}
+		*/
 	}
 }
 

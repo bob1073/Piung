@@ -6,8 +6,8 @@ Game::Game()
     window(sf::VideoMode(screenWidth, screenHeight), "Piung!", sf::Style::Close | sf::Style::Titlebar),
     walls(0.0f, 0.0f, screenWidth, screenHeight),
     ball({ screenWidth / 2.0f, screenHeight / 2.0f }, { 1.0f, 0.0f }),
-    playerPaddle(sf::Vector2f(50.0f, screenHeight / 3.0f), 25.0f, 125.0f),
-    enemyPaddle(sf::Vector2f(750.0f, screenHeight / 3.0f), 25.0f, 125.0f)
+    playerPaddle({ 50.0f, screenHeight / 3.0f }, 15.0f, 125.0f),
+    enemyPaddle({ 750.0f, screenHeight / 3.0f }, 15.0f, 125.0f)
 {
     //window.setVerticalSyncEnabled(true);
 
@@ -19,11 +19,12 @@ Game::Game()
 
     // UI
     playerScoreText.setFont(font);
-    playerScoreText.setCharacterSize(20);
+    playerScoreText.setCharacterSize(40);
     playerScoreText.setPosition(screenWidth / 5.0f, screenHeight / 10.0f);
     playerScoreText.setString(std::to_string(playerScore));
+
     enemyScoreText.setFont(font);
-    enemyScoreText.setCharacterSize(20);
+    enemyScoreText.setCharacterSize(40);
     enemyScoreText.setPosition(4.0f * screenWidth / 5.0f, screenHeight / 10.0f);
     enemyScoreText.setString(std::to_string(enemyScore));
 }
