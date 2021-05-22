@@ -50,7 +50,7 @@ private:
 	sf::Vector2f startDir;
 	sf::Vector2f pos;
 	sf::Vector2f dir;
-	int startDirX = 1;
+	int startDirX = 1; // Aux variable to change direction between scores
 	float speed;
 
 	// Functions

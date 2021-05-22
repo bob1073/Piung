@@ -15,7 +15,7 @@ public:
 	virtual void Update(const float& dt, const Ball& ball, const sf::FloatRect& walls) = 0;
 
 	// Collision
-	void DoBallCollision(Ball& ball) const;
+	bool DoBallCollision(Ball& ball) const;
 
 protected:
 	// Shape

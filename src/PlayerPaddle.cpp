@@ -18,6 +18,5 @@ void PlayerPaddle::Update(const float& dt, const Ball& ball, const sf::FloatRect
 	}
 
 	pos.y = ClampScreen(pos.y, walls);
-
 	paddle.setPosition(pos);
 }

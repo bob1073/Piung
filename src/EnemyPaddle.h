@@ -13,6 +13,7 @@ public:
 	virtual void Update(const float& dt, const Ball& ball, const sf::FloatRect& walls);
 
 private:
-	int dirY = 1.0f;
+	// Direction in Y axis of movement, used to follow the ball
+	float dirY = 1.0f;
 };
 

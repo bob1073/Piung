@@ -17,7 +17,7 @@ void Paddle::Render(sf::RenderTarget& target)
 	target.draw(paddle);
 }
 
-void Paddle::DoBallCollision(Ball& ball) const
+bool Paddle::DoBallCollision(Ball& ball) const
 {
 	sf::FloatRect paddleRect = paddle.getGlobalBounds();
 	sf::FloatRect ballRect = ball.GetRect();
@@ -25,14 +25,16 @@ void Paddle::DoBallCollision(Ball& ball) const
 	// Collision happens
 	if (paddleRect.intersects(ballRect))
 	{
-		ball.IncrementSpeed();
-
 		const float distFromCenter = (ballRect.top + ballRect.height / 2.0f) - (pos.y + height / 2.0f);
 		const float ratio = distFromCenter / (height / 2.0f);
 
 		ball.Rebound({ ballColllisionDir, ratio });
-		/*
-		// Top collision
+		ball.IncrementSpeed();
+
+		//Original way of colliding with the ball. I'll let there cause why not :D
+
+
+		/*// Top collision
 		if (ballRect.top <= pos.y + height / 3.0f)
 		{
 			ball.Rebound({ ballColllisionDir, -0.75f });
@@ -48,7 +50,11 @@ void Paddle::DoBallCollision(Ball& ball) const
 			ball.Rebound({ ballColllisionDir, 0.75f });
 		}
 		*/
+
+		return true;
 	}
+
+	return false;
 }
 
 float Paddle::ClampScreen(float y, const sf::FloatRect& walls)
