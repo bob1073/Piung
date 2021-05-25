@@ -9,7 +9,7 @@ Game::Game()
     playerPaddle({ 50.0f, screenHeight / 3.0f }, 15.0f, 125.0f),
     enemyPaddle({ 750.0f, screenHeight / 3.0f }, 15.0f, 125.0f)
 {
-    //window.setVerticalSyncEnabled(true);
+    window.setFramerateLimit(120);
 
     // Font loading
     if (!font.loadFromFile("Resources/Fonts/bit5x3.ttf"))
