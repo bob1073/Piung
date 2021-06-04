@@ -26,7 +26,7 @@ protected:
 	// Movement
 	sf::Vector2f pos;
 	float ballColllisionDir = 1.0f;
-	static constexpr float speed = 500.0f;
+	static constexpr float speed = 400.0f;
 
 	// Keep paddle inside the walls
 	float ClampScreen(float y, const sf::FloatRect& walls);
