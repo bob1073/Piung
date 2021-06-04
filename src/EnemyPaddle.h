@@ -14,6 +14,8 @@ public:
 
 private:
 	// Direction in Y axis of movement, used to follow the ball
+	static constexpr float movementDelay = 0.1f;
 	float dirY = 1.0f;
+	float timer = 0.0f;
 };
 
