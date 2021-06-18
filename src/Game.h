@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GameState.h"
 #include "PlayerPaddle.h"
 #include "EnemyPaddle.h"
 
@@ -14,39 +15,14 @@ public:
 
 	bool IsRunning() const;
 
-	// User functions here
-	void PlaySound(sf::Sound& sound, std::string fileName);
-	//
 private:
 	sf::RenderWindow window;
 	sf::Event e;
-
+	sf::Clock clock;
 	bool running = true;
+
+	std::stack<std::unique_ptr<State>> states;
 
 	static constexpr int screenWidth = 800;
 	static constexpr int screenHeight = 600;
-
-	// User variables here
-	/* Logic */
-	bool gameStarted = false;
-	/* Time */
-	sf::Clock clock;
-	/* Entities*/
-	sf::FloatRect walls;
-	Ball ball;
-	PlayerPaddle playerPaddle;
-	EnemyPaddle enemyPaddle;
-	/* UI */
-	sf::Font font;
-	sf::Text startText;
-	sf::Text playerScoreText;
-	sf::Text enemyScoreText;
-	/* Score */
-	int playerScore = 0;
-	int enemyScore = 0;
-	/* Sound */
-	sf::SoundBuffer soundBuffer;
-	sf::Sound hitSound;
-	sf::Sound pointSound;
-	//
 };
